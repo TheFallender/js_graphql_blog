@@ -1,0 +1,36 @@
+type Query {        
+    login(email: String!, password: String!): ID!
+    logout(id: ID!, token: ID!): String!
+
+    entryView(id: ID!, userID: ID!, token: ID!): Entry!
+    entryByAuthor(authorID: ID!, userID: ID!, token: ID!): [Entry!]!
+    blogEntries(userID: ID!, token: ID!) : [Entry!]!
+}
+
+type Mutation {
+    addUser(email: String!, password: String!, user_type: Int!): User!
+    removeUser(id: ID!, token: ID!): User!
+
+    addEntry(title: String!, description: String!, userID: ID!, token: ID!): Entry!
+    removeEntry(id: ID!, userID: ID!, token: ID!): Entry!
+}
+
+type Subscription {
+    subscribeAuthor(id: ID!, userID: ID!, token: ID!): Entry!
+}
+
+type Entry {
+    _id: ID!
+    title: String!
+    description: String!
+    user: User!
+}
+
+type User {
+    _id: ID!
+    email: String!
+    password: String!
+    user_type: Int!
+    entries: [Entry!]! 
+    token: ID!
+}
