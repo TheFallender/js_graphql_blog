@@ -36,4 +36,4 @@ Every entry is compossed by:
 	-Description: The content of the entry.
 	-User: The author of the entry.
 
-
+# DO NOT BOTHER USING THE USERNAME AND PASSWORD FOR THAT CLUSTER, IT WON'T WORK
